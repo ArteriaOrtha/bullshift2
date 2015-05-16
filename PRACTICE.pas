@@ -55,6 +55,35 @@ begin
   writeln('Кол-во итераций: ',iteration);
 end;
 
+procedure chord(a,b:real);
+var f,f2,fz,z,x,h:real;
+    iteration: integer;
+begin
+  iteration:=0;
+  f:=function1(a);
+  f2:=deriv2_func1(a);
+  if (f*f2>0) then 
+  begin
+    x:=b;
+    z:=a;
+  end
+  else
+  begin
+    x:=a;
+    z:=b;
+  end;
+  fz:=function1(z);
+  repeat
+    f:=function1(x);
+    h:=((x-z)*f)/(f-fz);
+    x:=x-h;
+    iteration:=iteration+1;
+  until (abs(h)<=eps);
+  writeln('Корень: x = ',x:10:6);
+  writeln('Функция: f(x) = ',function1(x):1:13);
+  writeln('Кол-во итераций: ',iteration);
+end;
+
 BEGIN
 
 END.
