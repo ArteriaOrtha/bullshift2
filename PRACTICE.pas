@@ -26,7 +26,7 @@ begin
   deriv1_func2:= (1/(x*ln(10)))+power(10,-x)*ln(10);
 end;
 
-function deriv2_func2(x:real):real;
+function deriv2_func2(x:real):real; //useless. need to delete
 begin
   deriv2_func2:=x*(ln(10)-1/10)-ln(10)-power(10,-x)*(ln(10)*ln(10)-1/10);
 end;
