@@ -6,12 +6,16 @@ begin
   function1:=power(x,4)-3*x+1;
 end;
 
-function deriv1_func1(x:real):real;
-begins
+function deriv1_func1(x:real):real; 
+begin
   deriv1_func1:= 4*x*x*x;
 end;
 
-function deriv2_func1(x:real):real; // Second derivation of this function useless
+function deriv3_func1(x:real):real;
+begin
+deriv3_func1:= 12*(x*x);
+end;
+function deriv2_func1(x:real):real; // Important Comment!!!!!!very important!
 begin
   deriv2_func1:=12*x;
 end;
