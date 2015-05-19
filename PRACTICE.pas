@@ -11,7 +11,7 @@ begins
   deriv1_func1:= 4*x*x*x;
 end;
 
-function deriv2_func1(x:real):real;
+function deriv2_func1(x:real):real; // Second derivation of this function useless
 begin
   deriv2_func1:=12*x;
 end;
