@@ -6,12 +6,16 @@ begin
   function1:=power(x,4)-3*x+1;
 end;
 
-function deriv1_func1(x:real):real;
-begins
+function deriv1_func1(x:real):real; 
+begin
   deriv1_func1:= 4*x*x*x;
 end;
 
-function deriv2_func1(x:real):real;
+function deriv3_func1(x:real):real;
+begin
+deriv3_func1:= 12*(x*x);
+end;
+function deriv2_func1(x:real):real; // Important Comment!!!!!!very important!
 begin
   deriv2_func1:=12*x;
 end;
@@ -50,9 +54,9 @@ begin
     iteration:=iteration+1;
   until abs(b-a)<=eps;
   x:=(a+b)/2;
-  writeln('Êîðåíü: x = ',x:10:6);
-  writeln('Ôóíêöèÿ: f(x) = ',function1(x));
-  writeln('Êîë-âî èòåðàöèé: ',iteration);
+  writeln('ÃŠÃ®Ã°Ã¥Ã­Ã¼: x = ',x:10:6);
+  writeln('Ã”Ã³Ã­ÃªÃ¶Ã¨Ã¿: f(x) = ',function1(x));
+  writeln('ÃŠÃ®Ã«-Ã¢Ã® Ã¨Ã²Ã¥Ã°Ã Ã¶Ã¨Ã©: ',iteration);
 end;
 
 procedure chord(a,b:real);
@@ -79,9 +83,29 @@ begin
     x:=x-h;
     iteration:=iteration+1;
   until (abs(h)<=eps);
-  writeln('Êîðåíü: x = ',x:10:6);
-  writeln('Ôóíêöèÿ: f(x) = ',function1(x):1:13);
-  writeln('Êîë-âî èòåðàöèé: ',iteration);
+  writeln('ÃŠÃ®Ã°Ã¥Ã­Ã¼: x = ',x:10:6);
+  writeln('Ã”Ã³Ã­ÃªÃ¶Ã¨Ã¿: f(x) = ',function1(x):1:13);
+  writeln('ÃŠÃ®Ã«-Ã¢Ã® Ã¨Ã²Ã¥Ã°Ã Ã¶Ã¨Ã©: ',iteration);
+end;
+
+procedure newton(a,b:real);
+var f,f1,f2,x,h:real;
+    iteration: integer;
+begin
+  iteration:=0;
+  f:=function2(b);
+  f2:=deriv2_func2(b);
+  if (f*f2>0) then  x:=b else x:=a;
+  repeat
+    f:=function2(x);
+    f1:=deriv1_func2(x);
+    h:=f/f1;
+    x:=x-h;
+    iteration:=iteration+1;
+  until (abs(h)<=eps);
+  writeln('ÐšÐ¾Ñ€ÐµÐ½ÑŒ: x = ',x:10:6);
+  writeln('Ð¤ÑƒÐ½ÐºÑ†Ð¸Ñ: f(x) = ',function2(x):1:13);
+  writeln('ÐšÐ¾Ð»-Ð²Ð¾ Ð¸Ñ‚ÐµÑ€Ð°Ñ†Ð¸Ð¹: ',iteration);
 end;
 
 BEGIN
