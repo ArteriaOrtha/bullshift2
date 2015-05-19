@@ -11,7 +11,7 @@ begin
   deriv1_func1:= 4*x*x*x;
 end;
 
-function deriv3_func1(x:real):real;
+function deriv3_func1(x:real):real; // jhbvygvhgfnctfchtfcgfc
 begin
 deriv3_func1:= 12*(x*x);
 end;
